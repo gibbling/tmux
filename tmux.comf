@@ -1,0 +1,19 @@
+# split panes
+bind | split-window -h
+bind - split-window -v
+
+# resize panes
+bind -r h resize-pane -L 5
+bind -r j resize-pane -D 5
+bind -r k resize-pane -U 5
+bind -r l resize-pane -R 5
+
+# enable 256-colors
+set -g default-terminal "screen-256color"
+
+# enable utf-8 on status bar
+set -g status on
+set -g status-utf8 on
+
+# re-bind prefix
+set -g prefix C-a
