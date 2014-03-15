@@ -17,3 +17,16 @@ set -g status-utf8 on
 
 # re-bind prefix
 set -g prefix C-a
+
+# set vi keys
+setw -g mode-keys vi
+
+#unbind [
+bind Escape copy-mode
+#unbind p
+bind p paste-buffer
+bind-key -t vi-copy 'v' begin-selection
+bind-key -t vi-copy 'y' copy-selection
+
+# Verify existence of tmuxline_snapshot
+if-shell "test -f ~/.tmux/tmuxline_snapshot" "source ~/.tmux/tmuxline_snapshot"
