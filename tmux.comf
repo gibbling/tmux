@@ -3,10 +3,23 @@ bind | split-window -h
 bind - split-window -v
 
 # resize panes
-bind -r h resize-pane -L 5
-bind -r j resize-pane -D 5
-bind -r k resize-pane -U 5
-bind -r l resize-pane -R 5
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
+
+# move between panes
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# cyle through panes
+bind -r C-h select-window -t :-
+bind -r C-l select-window -t :+
+
+# make current window the first window
+bind T swap-window -t 1
 
 # copy like vim
 setw -g mode-keys vi
@@ -24,13 +37,22 @@ set -g status-utf8 on
 
 # re-bind prefix
 set -g prefix C-a
+unbind C-b
+bind C-a send-prefix
+
+# shorten command delay
+set -sg escape-time 1
+
+# set window and pane index to 1
+set-option -g base-index 1
+setw -g  pane-base-index 1
 
 # set vi keys
 setw -g mode-keys vi
 
-#unbind [
+unbind [
 bind Escape copy-mode
-#unbind p
+unbind p
 bind p paste-buffer
 bind-key -t vi-copy 'v' begin-selection
 bind-key -t vi-copy 'y' copy-selection
