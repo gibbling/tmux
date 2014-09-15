@@ -43,6 +43,9 @@ bind C-a send-prefix
 # shorten command delay
 set -sg escape-time 1
 
+# set history limit
+set-option -g history-limit 10000
+
 # set window and pane index to 1
 set-option -g base-index 1
 setw -g  pane-base-index 1
