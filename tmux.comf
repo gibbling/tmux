@@ -29,7 +29,7 @@ bind-key -t vi-copy 'v' begin-selection
 #bind-key -t vi-copy 'y' copy-selection
 
 # enable 256-colors
-set -g default-terminal "screen-256color"
+#set -g default-terminal "screen-256color"
 
 # enable utf-8 on status bar
 set -g status on
@@ -50,6 +50,8 @@ set-option -g history-limit 10000
 set-option -g base-index 1
 setw -g  pane-base-index 1
 
+# reload tmux.conf config
+bind r source-file ~/.tmux.conf \; display-message "Config reloaded."
 # set vi keys
 setw -g mode-keys vi
 
